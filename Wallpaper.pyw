@@ -9,10 +9,8 @@ res.raise_for_status()
 #Parsing url from a text file
 root = ET.fromstring(res.text)
 #Assembles url from the list: root
-imageURL = 'https://www.bing.com' + root[0][3].text
+imageURL = 'https://www.bing.com' + root[0][3].text[0:-12] + '1920x1080.jpg'
 #Saves
-savePath = "C:\\Users\\stran\\OneDrive\\Documents\\Wallpaper\\BingWall.jpg"
+savePath = "C:\\Users\\stran\\Documents\\Wallpaper\\BingWall.jpg"
 urllib.request.urlretrieve(imageURL, savePath)
-ctypes.windll.user32.SystemParametersInfoW(20 , 0, savePath ,3)
-
-
+ctypes.windll.user32.SystemParametersInfoW(20 , 0, savePath , 0)
